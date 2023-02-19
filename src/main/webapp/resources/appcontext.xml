@@ -12,4 +12,10 @@
         <constructor-arg value="Leo"/>
     </bean>
 
+    <bean id="ClassicalMusic"
+          class="ClassicalMusic">
+    </bean>
+    <bean id="RapMusic"
+          class="RapMusic">
+    </bean>
 </beans>
