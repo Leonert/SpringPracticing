@@ -12,10 +12,13 @@
         <constructor-arg value="Leo"/>
     </bean>
 
-    <bean id="ClassicalMusic"
+<!--    <bean id="ClassicalMusic"-->
+<!--          class="ClassicalMusic">-->
+<!--    </bean>-->
+    <bean id="music"
           class="ClassicalMusic">
     </bean>
-    <bean id="RapMusic"
-          class="RapMusic">
+    <bean id="musicPlayer" class="MusicPlayer">
+        <constructor-arg ref="music"></constructor-arg>
     </bean>
 </beans>
