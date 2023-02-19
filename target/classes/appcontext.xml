@@ -19,6 +19,6 @@
           class="ClassicalMusic">
     </bean>
     <bean id="musicPlayer" class="MusicPlayer">
-        <constructor-arg ref="music"></constructor-arg>
+        <property name="music" ref="music"/>
     </bean>
 </beans>

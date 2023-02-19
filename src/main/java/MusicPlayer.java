@@ -8,4 +8,8 @@ public class MusicPlayer {
     void playMusic() {
         System.out.println(music.playMysic() + " is playing");
     }
+
+    public void setMusic(Music music) {
+        this.music = music;
+    }
 }
