@@ -1,3 +1,5 @@
+package ru;
+
 import java.util.List;
 
 public class MusicPlayer {
@@ -29,7 +31,11 @@ public class MusicPlayer {
 
     void playMusic() {
         for (Music music: musicList)
-        System.out.println(music.playMysic() + " is playing");
+        System.out.println(music.getMusic() + " is playing");
+    }
+
+    void playMusic(Music music) {
+        System.out.println(music.getMusic() + " is playing");
     }
 
     public void setMusicList(List<Music> musicList) {

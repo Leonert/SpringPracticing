@@ -1,18 +1,23 @@
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+package ru;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringTest {
     // https://github.com/NeilAlishev/SpringCourse
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("appcontext.xml");
+        MusicPlayer mp = new MusicPlayer();
+        Music classicalMusic = context.getBean("classicalMusic", Music.class);
+        mp.playMusic(classicalMusic);
+        Music rockMusic = context.getBean("rockMusic", Music.class);
+        mp.playMusic(rockMusic);
 
+        context.close();
 //        TestBean testBean = context.getBean("TestBean", TestBean.class);
 //        System.out.println(testBean.getName());
 
-//        MusicPlayer mp = context.getBean("musicPlayer", MusicPlayer.class);
-//        MusicPlayer mp2 = context.getBean("musicPlayer", MusicPlayer.class);
+//        ru.MusicPlayer mp = context.getBean("musicPlayer", ru.MusicPlayer.class);
+//        ru.MusicPlayer mp2 = context.getBean("musicPlayer", ru.MusicPlayer.class);
 //        System.out.println(mp.equals(mp2));
 //        mp.playMusic();
 //
@@ -22,8 +27,8 @@ public class SpringTest {
 //        System.out.println(mp.getName());
 //        System.out.println(mp.getVolume());
 
-        Music music = context.getBean("music", ClassicalMusic.class);
-        System.out.println(music.playMysic());
+//        ru.Music music = context.getBean("music", ru.ClassicalMusic.class);
+//        System.out.println(music.playMysic());
 
 //        EmptyClass emptyClass = new EmptyClass();
 //        List<Integer> list = emptyClass.getList();
@@ -31,6 +36,5 @@ public class SpringTest {
 //        list.add(1);
 //        System.out.println(emptyClass.getInt());
 
-        context.close();
     }
 }

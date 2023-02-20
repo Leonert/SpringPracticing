@@ -1,6 +1,8 @@
+package ru;
+
 public class RapMusic implements Music {
     @Override
-    public String playMysic() {
+    public String getMusic() {
         return "Eminem";
     }
 }

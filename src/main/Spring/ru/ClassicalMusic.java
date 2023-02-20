@@ -1,12 +1,14 @@
-public class ClassicalMusic implements Music{
-    private ClassicalMusic(){}
+package ru;
 
+import org.springframework.stereotype.Component;
+@Component
+public class ClassicalMusic implements Music{
     public static ClassicalMusic getInstance() {
         System.out.println("factory method is working");
         return new ClassicalMusic();
     }
     @Override
-    public String playMysic() {
+    public String getMusic() {
         return "Shopen";
     }
 
