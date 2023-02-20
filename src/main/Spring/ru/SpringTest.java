@@ -6,11 +6,15 @@ public class SpringTest {
     // https://github.com/NeilAlishev/SpringCourse
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("appcontext.xml");
-        MusicPlayer mp = new MusicPlayer();
-        Music classicalMusic = context.getBean("classicalMusic", Music.class);
-        mp.playMusic(classicalMusic);
-        Music rockMusic = context.getBean("rockMusic", Music.class);
-        mp.playMusic(rockMusic);
+//        MusicPlayer mp = new MusicPlayer();
+//        Music classicalMusic = context.getBean("classicalMusic", Music.class);
+//        mp.playMusic(classicalMusic);
+//        Music rockMusic = context.getBean("rockMusic", Music.class);
+//        mp.playMusic(rockMusic);
+
+        Computer computer = context.getBean("computer", Computer.class);
+        System.out.println(computer);
+
 
         context.close();
 //        TestBean testBean = context.getBean("TestBean", TestBean.class);

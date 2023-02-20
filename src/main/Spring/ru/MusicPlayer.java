@@ -1,11 +1,22 @@
 package ru;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MusicPlayer {
-    private List<Music> musicList;
     private String name;
     private int volume;
+    private Music music;
+
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
+    @Autowired
+
+    public MusicPlayer(ClassicalMusic classicalMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
+    }
 
     public String getName() {
         return name;
@@ -23,22 +34,10 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public MusicPlayer(List<Music> music) {
-        this.musicList = music;
-    }
 
     public MusicPlayer(){}
 
-    void playMusic() {
-        for (Music music: musicList)
-        System.out.println(music.getMusic() + " is playing");
-    }
-
-    void playMusic(Music music) {
-        System.out.println(music.getMusic() + " is playing");
-    }
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
+    String playMusic() {
+        return (classicalMusic.getMusic() + " is playing");
     }
 }
