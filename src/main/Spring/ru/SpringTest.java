@@ -1,22 +1,37 @@
 package ru;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.List;
 
 public class SpringTest {
+
     // https://github.com/NeilAlishev/SpringCourse
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("appcontext.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        MusicPlayer genres = context.getBean("genres", MusicPlayer.class);
+        for (int i = 0; i < 10; i++) {
+            System.out.println(genres.playMusic());
+        }
+
+        context.close();
+//        Music music1 = context.getBean("classicalMusic", ClassicalMusic.class);
+//        Music music2 = context.getBean("classicalMusic", ClassicalMusic.class);
+//
+//        System.out.println(music1 == music2);
+
 //        MusicPlayer mp = new MusicPlayer();
 //        Music classicalMusic = context.getBean("classicalMusic", Music.class);
 //        mp.playMusic(classicalMusic);
 //        Music rockMusic = context.getBean("rockMusic", Music.class);
 //        mp.playMusic(rockMusic);
 
-        Computer computer = context.getBean("computer", Computer.class);
-        System.out.println(computer);
+//        Computer computer = context.getBean("computer", Computer.class);
+//        for (int i = 0; i < 5; i++) System.out.println(computer);
+//        System.out.println(computer.getMusicPlayer().getName());
+//        System.out.println(computer.getMusicPlayer().getVolume());
 
 
-        context.close();
 //        TestBean testBean = context.getBean("TestBean", TestBean.class);
 //        System.out.println(testBean.getName());
 

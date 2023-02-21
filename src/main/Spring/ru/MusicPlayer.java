@@ -1,43 +1,19 @@
 package ru;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
 
-@Component
+import java.util.List;
+import java.util.Random;
+
 public class MusicPlayer {
-    private String name;
-    private int volume;
-    private Music music;
+    private List<Music> genres;
 
-    private ClassicalMusic classicalMusic;
-    private RockMusic rockMusic;
-    @Autowired
-
-    public MusicPlayer(ClassicalMusic classicalMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
+    public MusicPlayer(List<Music> genres) {
+        this.genres = genres;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-
-    public MusicPlayer(){}
 
     String playMusic() {
-        return (classicalMusic.getMusic() + " is playing");
+        Random random = new Random();
+        return genres.get(random.nextInt(genres.size())).getMusic();
     }
 }

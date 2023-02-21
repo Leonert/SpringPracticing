@@ -1,21 +1,35 @@
 package ru;
 
 import org.springframework.stereotype.Component;
-@Component
-public class ClassicalMusic implements Music{
-    public static ClassicalMusic getInstance() {
-        System.out.println("factory method is working");
-        return new ClassicalMusic();
-    }
-    @Override
-    public String getMusic() {
-        return "Shopen";
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+public class ClassicalMusic implements Music {
+    List<String> songs = new ArrayList<>();
+
+    public ClassicalMusic() {
+        songs.add("classical1");
+        songs.add("classical2");
+        songs.add("classical3");
     }
 
-    public void doMyInit() {
+    @Override
+    public String getMusic() {
+        Random random = new Random();
+        return songs.get(random.nextInt(songs.size()));
+    }
+
+    @PostConstruct
+
+    public void i() {
         System.out.println("init");
     }
-    public void doMyDestroy(){
-        System.out.println("destroy");
+
+    @PreDestroy
+    public void d() {
+        System.out.println("destr");
     }
 }
